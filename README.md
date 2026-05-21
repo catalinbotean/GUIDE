@@ -7,6 +7,10 @@ Research codebase targeting CVPR 2027. See [PLAN.md](PLAN.md) for the phase-gate
 ## Status
 
 **Phase 0 — repository scaffolding.** No training code, no models, no data yet.
+One Colab smoke-test notebook lives in [`notebooks/00_colab_smoke.ipynb`](notebooks/00_colab_smoke.ipynb)
+— fits a small image with 2D gaussians in pure PyTorch on a free Colab T4
+(~1 minute, zero extra installs). Use it to confirm the GPU pipeline before
+Phase 1.
 
 ## Setup
 
