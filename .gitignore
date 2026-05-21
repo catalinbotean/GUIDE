@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+dist/
+
+# Environments
+.venv/
+venv/
+.env
+.envrc
+
+# Project artifacts (per PLAN.md) — anchored to repo root so they don't
+# shadow same-named package subdirs (e.g. src/guide/data/).
+/data/
+/checkpoints/
+/outputs/
+/wandb/
+/runs/
+*.ply
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo

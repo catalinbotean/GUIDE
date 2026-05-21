@@ -1,0 +1,54 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "guide"
+version = "0.0.1"
+description = "Uncertainty-guided diffusion priors for monocular dynamic Gaussian splatting"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Catalin Botean", email = "catalin.botean@visma.com" }]
+dependencies = [
+    "torch>=2.5,<2.6",
+    "torchvision>=0.20,<0.21",
+    "numpy>=1.26,<2.3",
+    "einops>=0.8",
+    "pyyaml>=6",
+    "tensorboard>=2.18",
+    "tqdm>=4.66",
+    "pillow>=10",
+    "opencv-python>=4.10",
+    "plyfile>=1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "ruff>=0.7",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/guide"]
+
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu124" }
+torchvision = { index = "pytorch-cu124" }
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests", "scripts"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "W"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
